@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoutePacket | Resources</title>
+
+<style>
+/* ======== Light Green Theme ======== */
+:root {
+  --bg: #f6fff6;
+  --card: #e9f8e9;
+  --text: #0a2a0a;
+  --muted: #5b6f5b;
+  --outline: #c8e8c8;
+
+  --brand: #4CAF50;
+  --brand2: #3a9b41;
+
+  --shadow: 0 8px 18px rgba(0,0,0,.10);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+.container { width: min(1100px, 92%); margin: 0 auto; }
+
+/* ======== HEADER ======== */
+.header {
+  position: sticky; top: 0; z-index: 50;
+  background: #ffffffdd;
+  border-bottom: 2px solid var(--outline);
+  backdrop-filter: blur(8px);
+}
+.nav {
+  display: grid; grid-template-columns: auto 1fr auto;
+  padding: 1rem 0;
+  align-items: center;
+}
+.brand {
+  display: flex; align-items: center; gap: .6rem;
+  font-size: 1.3rem; font-weight: 700;
+  color: var(--brand); text-decoration: none;
+}
+.logo {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: var(--brand); color:white;
+  display:grid; place-items:center; font-weight:700;
+  box-shadow: var(--shadow);
+}
+
+.menu a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 1rem;
+  padding: .6rem 1rem;
+  border-radius: .5rem;
+  background: #dff6df;
+  border: 1px solid var(--outline);
+  font-weight: 600;
+}
+.menu a:hover { background: var(--brand); color: #fff; }
+
+.nav-toggle { display:none; }
+.nav-toggle-btn { display:none; }
+
+@media(max-width:850px){
+  .nav { grid-template-columns:auto auto 1fr; }
+  .menu {
+    position:absolute; display:none;
+    top:75px; right:1rem;
+    background:#fff;
+    flex-direction:column;
+    min-width:220px;
+    padding:.7rem;
+    border-radius:.7rem;
+    border:1px solid var(--outline);
+    box-shadow: var(--shadow);
+  }
+  .menu a { margin:.3rem 0; }
+  .nav-toggle-btn { display:block; font-size:1.9rem; cursor:pointer; color:var(--text); }
+  .nav-toggle:checked ~ .menu { display:flex; }
+}
+
+/* ======== HERO ======== */
+.resources-hero {
+  padding: 90px 0;
+  text-align:center;
+  color:white;
+  background-image: url('https://i.ibb.co/LgY6Q2K/network-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom:2px solid var(--outline);
+}
+.resources-hero h1 {
+  font-size: 2.7rem;
+  margin-bottom: .8rem;
+  text-shadow: 0 4px 12px rgba(0,0,0,.4);
+}
+.resources-hero p {
+  max-width:650px;
+  margin: 0 auto;
+  font-size:1.1rem;
+  opacity:.92;
+}
+
+/* ======== CARDS ======== */
+.section { padding: 60px 0; }
+.section-title { font-size:2rem; margin-bottom:.4rem; }
+.section-sub { color:var(--muted); margin-bottom:1.4rem; }
+
+.resource-grid {
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:1.2rem;
+}
+@media(max-width:900px){ .resource-grid { grid-template-columns:1fr; } }
+
+.resource-card {
+  background: var(--card);
+  padding:1.3rem;
+  border-radius:1rem;
+  border:1px solid var(--outline);
+  box-shadow: var(--shadow);
+}
+.resource-card h3 { margin-top:0; }
+
+/* Buttons */
+.view-btn {
+  display:inline-block;
+  background: var(--brand);
+  padding:.6rem 1rem;
+  color:white;
+  border-radius:.6rem;
+  text-decoration:none;
+  margin-top:.8rem;
+  font-weight:600;
+}
+.view-btn:hover { background: var(--brand2); }
+
+/* ======== FOOTER ======== */
+.footer {
+  background:#e8ffe8;
+  border-top:1px solid var(--outline);
+  padding:40px 0;
+  margin-top:40px;
+}
+.footer-grid {
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:2rem;
+}
+@media(max-width:800px){
+  .footer-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:500px){
+  .footer-grid { grid-template-columns:1fr; }
+}
+
+.social a {
+  display:inline-block;
+  margin-right:10px;
+  padding:.5rem 1rem;
+  background:var(--brand);
+  color:white;
+  border-radius:.5rem;
+  text-decoration:none;
+  font-weight:600;
+}
+.social a:hover { background:var(--brand2); }
+
+.links { list-style:none; padding:0; }
+.links a { color:var(--text); text-decoration:none; }
+.links a:hover { color: var(--brand); }
+</style>
+</head>
+
+<body>
+
+<!-- ======== NAVBAR ======== -->
+<header class="header">
+  <div class="container nav">
+
+    <!-- Brand -->
+    <a href="#home" class="brand">
+      <div class="logo">RP</div>
+      RoutePacket
+    </a>
+
+    <!-- Mobile toggle -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-btn">&#9776;</label>
+
+    <!-- Menu -->
+    <nav class="menu">
+      <a href="https://routepacket.github.io/Home/index.html">Home</a>
+      <a href="https://routepacket.github.io/Home/Blogs.html">Blogs</a>
+      <a href="https://routepacket.github.io/Home/About.html">About</a>
+      <a href="https://routepacket.github.io/Home/Resources.html">Resources</a>
+      <a href="https://routepacket.github.io/Home/Guidance.html">Guidance</a>
+      <a href="https://routepacket.github.io/Home/Contact.html">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="resources-hero">
+  <div class="container">
+    <h1>Resources</h1>
+    <p>Your one-stop collection of learning tools, books, merch, and networking essentials curated by RoutePacket.</p>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Explore Our Resources</h2>
+    <p class="section-sub">Handpicked essentials to help you learn, practice, and grow as a Network Engineer.</p>
+
+    <div class="resource-grid">
+
+      <div class="resource-card">
+        <h3>📘 Networking Books</h3>
+        <p>Deep-dive into routing & switching, automation, firewalls, SD-WAN, and interview concepts.</p>
+        #Explore Books</a>
+      </div>
+
+      <div class="resource-card">
+        <h3>👕 T‑Shirts & Merch</h3>
+        <p>Premium tech-themed T‑shirts and apparel designed for Network Engineers.</p>
+        #Shop Merch</a>
+      </div>
+
+      <div class="resource-card">
+        <h3>🛠 Tools & Templates</h3>
+        <p>Packet tracer labs, GNS3 topologies, CLI templates, study guides, flow diagrams & more.</p>
+        #View Tools</a>
+      </div>
+
+      <div class="resource-card">
+        <h3>📄 Study Sheets</h3>
+        <p>Routing cheat-sheets, subnetting charts, ACL quick notes, TCP/IP breakdowns.</p>
+        #Open Sheets</a>
+      </div>
+
+      <div class="resource-card">
+        <h3>🎓 Career Guides</h3>
+        <p>Resume formats, job role breakdowns, skill maps & hiring prep docs.</p>
+        #View Guides</a>
+      </div>
+
+      <div class="resource-card">
+        <h3>📂 Lab Packs</h3>
+        <p>EVE‑NG, GNS3, PT labs — all structured from beginner → advanced.</p>
+        #Access Labs</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer class="footer">
+  <div class="container footer-grid">
+
+    <div>
+      <h4>RoutePacket</h4>
+      <p class="muted">Your gateway to Network Engineering success.</p>
+
+      <div class="social">
+        <a href="#">LinkedIn</a>
+        <a href="#">Instagram</a>
+        <a href="#">WhatsApp</a>
+      </div>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <ul class="links">
+        <li><a href="#guidance">Interview Guidance</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Careers</h4>
+      <ul class="links">
+        <li><a href="#">Work with us →</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="container" style="text-align:center; margin-top:20px;">
+    © <span id="year"></span> RoutePacket. All rights reserved.
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
