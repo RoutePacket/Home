@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoutePacket | Interview Guidance</title>
+
+<style>
+/* ======== Light Green Theme ======== */
+:root {
+  --bg: #f6fff6;
+  --card: #e9f8e9;
+  --text: #0a2a0a;
+  --muted: #5b6f5b;
+  --outline: #c8e8c8;
+
+  --brand: #4CAF50;
+  --brand2: #3a9b41;
+
+  --shadow: 0 8px 18px rgba(0,0,0,.10);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+.container { width: min(1100px, 92%); margin: 0 auto; }
+
+/* ======== HEADER (same as your index header) ======== */
+.header {
+  position: sticky; top: 0; z-index: 50;
+  background: #ffffffdd;
+  border-bottom: 2px solid var(--outline);
+  backdrop-filter: blur(8px);
+}
+.nav {
+  display: grid; grid-template-columns: auto 1fr auto;
+  padding: 1rem 0;
+  align-items: center;
+}
+.brand {
+  display: flex; align-items: center; gap: .6rem;
+  font-size: 1.3rem; font-weight: 700;
+  color: var(--brand); text-decoration: none;
+}
+.logo {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: var(--brand); color:white;
+  display:grid; place-items:center; font-weight:700;
+  box-shadow: var(--shadow);
+}
+
+.menu a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 1rem;
+  padding: .6rem 1rem;
+  border-radius: .5rem;
+  background: #dff6df;
+  border: 1px solid var(--outline);
+  font-weight: 600;
+}
+.menu a:hover { background: var(--brand); color:#fff; }
+
+.nav-toggle { display:none; }
+.nav-toggle-btn { display:none; }
+
+@media(max-width:850px){
+  .nav { grid-template-columns:auto auto 1fr; }
+  .menu {
+    position:absolute; display:none;
+    top:75px; right:1rem;
+    background:#fff;
+    flex-direction:column;
+    min-width:220px;
+    padding:.7rem;
+    border-radius:.7rem;
+    border:1px solid var(--outline);
+    box-shadow: var(--shadow);
+  }
+  .menu a { margin:.3rem 0; }
+  .nav-toggle-btn { display:block; font-size:1.9rem; cursor:pointer; color:var(--text); }
+  .nav-toggle:checked ~ .menu { display:flex; }
+}
+
+/* ======== GUIDANCE HERO ======== */
+.guidance-hero {
+  padding: 90px 0;
+  text-align:center;
+  color:white;
+  background-image: url('https://i.ibb.co/LgY6Q2K/network-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  border-bottom: 2px solid var(--outline);
+}
+.guidance-hero h1 {
+  font-size: 2.7rem;
+  text-shadow: 0 4px 12px rgba(0,0,0,.4);
+}
+.guidance-hero p {
+  max-width: 650px;
+  margin: 0.6rem auto;
+  opacity: 0.92;
+  font-size: 1.1rem;
+}
+
+/* ======== CARDS ======== */
+.section { padding: 60px 0; }
+.section-title { font-size:2rem; margin-bottom:.4rem; }
+.section-sub { color:var(--muted); margin-bottom:1.4rem; }
+
+.grid-3 {
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:1.2rem;
+}
+@media(max-width:900px){ .grid-3 { grid-template-columns:1fr; } }
+
+.card {
+  background: var(--card);
+  padding:1.3rem;
+  border-radius:1rem;
+  border:1px solid var(--outline);
+  box-shadow: var(--shadow);
+}
+.card h3 { margin-top:0; }
+
+/* Buttons */
+.learn-btn {
+  display:inline-block;
+  padding:.6rem 1rem;
+  background: var(--brand);
+  border-radius:.6rem;
+  color:white;
+  margin-top:.8rem;
+  text-decoration:none;
+  font-weight:600;
+}
+.learn-btn:hover { background:var(--brand2); }
+
+/* ======== FOOTER ======== */
+.footer {
+  background:#e8ffe8;
+  border-top:1px solid var(--outline);
+  padding:40px 0;
+  margin-top:40px;
+}
+.footer-grid {
+  display:grid; grid-template-columns:2fr 1fr 1fr; gap:2rem;
+}
+@media(max-width:800px){
+  .footer-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:500px){
+  .footer-grid { grid-template-columns:1fr; }
+}
+
+.social a {
+  display:inline-block;
+  margin-right:10px;
+  padding:.5rem 1rem;
+  background:var(--brand);
+  color:white;
+  border-radius:.5rem;
+  text-decoration:none;
+  font-weight:600;
+}
+.social a:hover { background:var(--brand2); }
+
+.links { list-style:none; padding:0; }
+.links a { color:var(--text); text-decoration:none; }
+.links a:hover { color: var(--brand); }
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container nav">
+    index.html
+      <div class="logo">RP</div>
+      RoutePacket
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-btn">&#9776;</label>
+
+    <nav class="menu">
+      index.htmlHome</a>
+      blogs.htmlBlogs</a>
+      about.htmlAbout</a>
+      resources.htmlResources</a>
+      guidance.htmlGuidance</a>
+      #contactContact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="guidance-hero">
+  <div class="container">
+    <h1>Interview Guidance</h1>
+    <p>Prepare for real-world networking interviews with structured CQs, labs, scenarios, and troubleshooting paths designed for every role level.</p>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<section class="section">
+  <div class="container">
+
+    <h2 class="section-title">What We Cover</h2>
+    <p class="section-sub">Complete roadmap to crack L1, L2, L3 & Specialist roles</p>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>Core Questions (CQs)</h3>
+        <p>Topic-wise interview questions with simplified explanations. Covers OSPF, BGP, VLAN, STP, DHCP, DNS, Load Balancing & more.</p>
+        #Learn</a>
+      </div>
+
+      <div class="card">
+        <h3>Hands‑On Labs</h3>
+        <p>Packet Tracer, EVE‑NG & GNS3 labs including routing labs, switching labs, firewall NAT labs, SD‑WAN walkthroughs.</p>
+        #Start Lab</a>
+      </div>
+
+      <div class="card">
+        <h3>Real Scenarios</h3>
+        <p>Ticket-based, troubleshooting-based, and enterprise-level scenario practice questions.</p>
+        #View Scenarios</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Role‑Based Guidance</h2>
+    <p class="section-sub">Guidance tailored for specific job roles</p>
+
+    <div class="grid-3">
+
+      <div class="card">
+        <h3>NOC Engineer Path</h3>
+        <p>Master monitoring tools, L1 troubleshooting, basic routing & switching concepts.</p>
+        #Explore Path</a>
+      </div>
+
+      <div class="card">
+        <h3>Routing & Switching Engineer</h3>
+        <p>Focus on OSPF, EIGRP, BGP, STP, VLANs, EtherChannel, trunking, HSRP/VRRP.</p>
+        #Explore Path</a>
+      </div>
+
+      <div class="card">
+        <h3>Firewall / Security Engineer</h3>
+        <p>Master NAT, VPNs, ACLs, policy creation, threat inspection & FTD/Checkpoint basics.</p>
+        #Explore Path</a>
+      </div>
+
+      <div class="card">
+        <h3>SD‑WAN / Cloud Networking</h3>
+        <p>Deep dives into Viptela, Meraki, cloud networking basics & automation tasks.</p>
+        #Explore Path</a>
+      </div>
+
+      <div class="card">
+        <h3>Unified Communications</h3>
+        <p>Learn VoIP, SIP, CME, CUCM basics & call flow troubleshooting.</p>
+        #Explore Path</a>
+      </div>
+
+      <div class="card">
+        <h3>Automation + Python</h3>
+        <p>Beginner-friendly approach to Python for network automation, APIs & Netmiko.</p>
+        #Explore Path</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+
+    <div>
+      <h4>RoutePacket</h4>
+      <p class="muted">Your gateway to Network Engineering success.</p>
+
+      <div class="social">
+        #LinkedIn</a>
+        #Instagram</a>
+        #WhatsApp</a>
+      </div>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <ul class="links">
+        <li>blogs.htmlBlogs</a></li>
+        <li>about.htmlAbout</a></li>
+        <li>resources.htmlResources</a></li>
+        <li>guidance.htmlGuidance</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Careers</h4>
+      <ul class="links">
+        <li>careers.htmlWork With Us →</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="container" style="text-align:center; margin-top:20px; color:var(--muted);">
+    © <span id="year"></span> RoutePacket. All rights reserved.
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

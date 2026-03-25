@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoutePacket | Blogs</title>
+
+<style>
+/* ======== Light Green Theme ======== */
+:root {
+  --bg: #f6fff6;
+  --card: #e9f8e9;
+  --text: #0a2a0a;
+  --muted: #5b6f5b;
+  --outline: #c8e8c8;
+
+  --brand: #4CAF50;
+  --brand2: #3a9b41;
+
+  --shadow: 0 8px 18px rgba(0,0,0,.10);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+.container { width: min(1100px, 92%); margin: 0 auto; }
+
+/* ======== Navbar ======== */
+.header {
+  position: sticky; top: 0; z-index: 50;
+  background: #ffffffdd;
+  border-bottom: 2px solid var(--outline);
+  backdrop-filter: blur(8px);
+}
+.nav {
+  display: grid; grid-template-columns: auto 1fr auto;
+  padding: 1rem 0;
+  align-items: center;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--brand);
+  text-decoration: none;
+}
+.logo {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: var(--brand);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+
+.menu a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 1rem;
+  padding: .6rem 1rem;
+  border-radius: .5rem;
+  background: #dff6df;
+  border: 1px solid var(--outline);
+  font-weight: 600;
+}
+.menu a:hover { background: var(--brand); color: #fff; }
+
+.nav-toggle { display:none; }
+.nav-toggle-btn { display:none; }
+
+/* Mobile Nav */
+@media(max-width:850px){
+  .nav { grid-template-columns: auto auto 1fr; }
+  .menu {
+    position: absolute;
+    display: none;
+    top: 75px;
+    right: 1rem;
+    background: #ffffff;
+    flex-direction: column;
+    min-width: 220px;
+    padding: .7rem;
+    border-radius: .7rem;
+    border: 1px solid var(--outline);
+    box-shadow: var(--shadow);
+  }
+  .menu a { margin: .3rem 0; }
+  .nav-toggle-btn { display:block; font-size: 1.9rem; cursor:pointer; color:var(--text); }
+  .nav-toggle:checked ~ .menu { display:flex; }
+}
+
+/* ======== Section ======== */
+.section { padding: 60px 0; }
+.section-title { font-size: 2rem; margin-bottom: .4rem; }
+.section-sub { color: var(--muted); margin-bottom: 1.4rem; }
+
+/* ======== Blog Cards ======== */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1rem;
+}
+@media(max-width:900px){ .blog-grid { grid-template-columns: 1fr; } }
+
+.blog-card {
+  background: var(--card);
+  padding: 1.2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--outline);
+  box-shadow: var(--shadow);
+}
+.blog-card h3 { margin-top: 0; }
+.blog-card p { margin-bottom: .6rem; }
+
+.read-btn {
+  display: inline-block;
+  padding: .5rem 1rem;
+  background: var(--brand);
+  color: white;
+  border-radius: .5rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+.read-btn:hover { background: var(--brand2); }
+
+/* ======== Social Buttons ======== */
+.social a {
+  display:inline-block;
+  margin-right:10px;
+  padding:.5rem 1rem;
+  background: var(--brand);
+  color:white;
+  border-radius:.5rem;
+  text-decoration:none;
+  font-weight:600;
+}
+.social a:hover { background: var(--brand2); }
+
+/* ======== Footer ======== */
+.footer {
+  background:#e8ffe8;
+  border-top:1px solid var(--outline);
+  padding:40px 0;
+  margin-top:40px;
+}
+.footer-grid {
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:2rem;
+}
+@media(max-width:800px){
+  .footer-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:500px){
+  .footer-grid { grid-template-columns:1fr; }
+}
+
+.links { list-style:none; padding:0; }
+.links a { color:var(--text); text-decoration:none; }
+.links a:hover { color: var(--brand); }
+
+</style>
+</head>
+
+<body>
+
+<!-- ======== HEADER ======== -->
+<header class="header">
+  <div class="container nav">
+    #home
+      <div class="logo">RP</div>
+      RoutePacket
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-btn">&#9776;</label>
+
+    <nav class="menu">
+      index.htmlHome</a>
+      blogs.htmlBlogs</a>
+      #aboutAbout</a>
+      #resourcesResources</a>
+      #guidanceGuidance</a>
+      #contactContact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ======== BLOG PAGE ======== -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">RoutePacket Blogs</h2>
+    <p class="section-sub">Deep dives, networking insights & interview concepts explained simply</p>
+
+    <div class="blog-grid">
+
+      <div class="blog-card">
+        <h3>🔌 Understanding OSPF Areas</h3>
+        <p>Learn about OSPF area types, LSAs, ABRs & why multi‑area OSPF is used in real networks.</p>
+        #Read More</a>
+      </div>
+
+      <div class="blog-card">
+        <h3>🛡 BGP for Beginners</h3>
+        <p>Confused about BGP? This guide explains neighbors, attributes, routing decisions & labs.</p>
+        #Read More</a>
+      </div>
+
+      <div class="blog-card">
+        <h3>📡 20 Interview Questions for L1/L2/L3 Roles</h3>
+        <p>Most commonly asked network engineer interview questions with answers.</p>
+        #Read More</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer class="footer">
+  <div class="container footer-grid">
+
+    <div>
+      <h4>RoutePacket</h4>
+      <p class="muted">Your gateway to Network Engineering success.</p>
+
+      <div class="social">
+        #LinkedIn</a>
+        #Instagram</a>
+        #WhatsApp</a>
+      </div>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <ul class="links">
+        <li>blogs.htmlBlogs</a></li>
+        <li>#guidanceGuidance</a></li>
+        <li>#resourcesResources</a></li>
+        <li>#aboutAbout</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Careers</h4>
+      <ul class="links">
+        <li>careers.htmlWork with us →</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="container" style="text-align:center; margin-top:20px; color:var(--muted);">
+    © <span id="year"></span> RoutePacket. All rights reserved.
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
