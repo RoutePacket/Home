@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoutePacket | Labs</title>
+
+<style>
+/* ================= LIGHT GREEN THEME ================= */
+:root {
+  --bg: #f6fff6;
+  --card: #e9f8e9;
+  --text: #0a2a0a;
+  --muted: #5b6f5b;
+  --outline: #c8e8c8;
+
+  --brand: #4CAF50;
+  --brand2: #3a9b41;
+
+  --shadow: 0 8px 18px rgba(0,0,0,.10);
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container { width: min(1100px, 92%); margin: auto; }
+
+/* ================= HEADER ================= */
+.header {
+  position: sticky; top: 0; z-index: 50;
+  background: #ffffffdd;
+  border-bottom: 2px solid var(--outline);
+  backdrop-filter: blur(8px);
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  padding: 1rem 0;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--brand);
+  text-decoration: none;
+}
+
+.logo {
+  width: 36px; height: 36px;
+  background: var(--brand);
+  color: white;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+/* ================= MENU ================= */
+.menu a {
+  background: #dff6df;
+  padding: .6rem 1rem;
+  border-radius: .5rem;
+  margin-left: 1rem;
+  text-decoration: none;
+  border: 1px solid var(--outline);
+}
+.menu a:hover {
+  background: var(--brand);
+  color: white;
+}
+
+/* ================= HERO ================= */
+.guidance-hero {
+  padding: 70px 0;
+  text-align: center;
+  background: url('https://i.ibb.co/LgY6Q2K/network-bg.jpg');
+  background-size: cover;
+  color: white;
+}
+
+/* ================= SEARCH ================= */
+.search-box {
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.search-box input {
+  width: 60%;
+  padding: .7rem 1rem;
+  border-radius: .5rem;
+  border: 1px solid var(--outline);
+}
+.search-box button {
+  background: var(--brand);
+  color: white;
+  padding: .7rem 1.4rem;
+  border: none;
+  border-radius: .5rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* ================= TABLE ================= */
+.table-container { margin-top: 20px; overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+th, td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--outline);
+}
+
+th {
+  background: #dff6df;
+  font-weight: 700;
+}
+
+.download-btn {
+  background: var(--brand);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.download-btn:hover { background: var(--brand2); }
+
+/* ================= FOOTER ================= */
+.footer {
+  margin-top: 40px;
+  padding: 30px 0;
+  background: #e9f8e9;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.links a {
+  text-decoration: none;
+  color: var(--text);
+}
+.links a:hover { color: var(--brand); }
+</style>
+
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="header">
+  <div class="container nav">
+
+    <a href="#home" class="brand">
+      <div class="logo">RP</div>
+      RoutePacket
+    </a>
+
+    <nav class="menu">
+      <a href="https://routepacket.github.io/Home/index.html">Home</a>
+      <a href="https://routepacket.github.io/Home/Blogs.html">Blogs</a>
+      <a href="https://routepacket.github.io/Home/About.html">About</a>
+      <a href="https://routepacket.github.io/Home/Resources.html">Resources</a>
+      <a href="https://routepacket.github.io/Home/Guidance.html">Guidance</a>
+      <a href="https://routepacket.github.io/Home/Contact.html">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="guidance-hero">
+  <h1>Hands‑On Labs</h1>
+  <p>100 Packet Tracer Labs to Master Real‑World Networking</p>
+</section>
+
+<!-- ================= SEARCH ================= -->
+<div class="container">
+  <div class="search-box">
+    <input id="searchInput" placeholder="Search Lab (OSPF, VLAN, BGP, Firewall...)">
+    <button onclick="searchLabs()">Search</button>
+  </div>
+</div>
+
+<!-- ================= TABLE ================= -->
+<div class="container table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Sr No</th>
+        <th>Lab Name</th>
+        <th>Download</th>
+        <th>Topics Covered</th>
+      </tr>
+    </thead>
+
+    <tbody id="labRows">
+
+      <!-- ================= LABS 1 – 50 ================= -->
+
+      <tr><td>1</td><td>OSPF Single Area Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/ospf/Multiarea_OSPF_Topo_111.pkt" download>Download</a></td><td>OSPF</td></tr>
+
+      <tr><td>2</td><td>OSPF Multi Area Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/ospf/OSPF_MultiArea.pkt" download>Download</a></td><td>OSPF</td></tr>
+
+      <tr><td>3</td><td>EIGRP Basic Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/eigrp/EIGRP_Basic.pkt" download>Download</a></td><td>EIGRP</td></tr>
+
+      <tr><td>4</td><td>EIGRP Advanced Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/eigrp/EIGRP_Advanced.pkt" download>Download</a></td><td>EIGRP</td></tr>
+
+      <tr><td>5</td><td>BGP Peering Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/bgp/BGP_Peering.pkt" download>Download</a></td><td>BGP</td></tr>
+
+      <tr><td>6</td><td>BGP Route Reflector Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/bgp/BGP_RouteReflector.pkt" download>Download</a></td><td>BGP</td></tr>
+
+      <tr><td>7</td><td>VLAN Creation Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/vlan/VLAN_Creation.pkt" download>Download</a></td><td>VLAN</td></tr>
+
+      <tr><td>8</td><td>VLAN Trunking Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/vlan/VLAN_Trunking.pkt" download>Download</a></td><td>VLAN, Trunk</td></tr>
+
+      <tr><td>9</td><td>Inter‑VLAN Routing Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/vlan/InterVLAN_Routing.pkt" download>Download</a></td><td>Routing, VLAN</td></tr>
+
+      <tr><td>10</td><td>STP Basic Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/stp/STP_Basic.pkt" download>Download</a></td><td>STP</td></tr>
+
+      <tr><td>11</td><td>STP Root Bridge Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/stp/STP_RootBridge.pkt" download>Download</a></td><td>STP</td></tr>
+
+      <tr><td>12</td><td>RSTP Configuration Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/stp/RSTP_Config.pkt" download>Download</a></td><td>RSTP</td></tr>
+
+      <tr><td>13</td><td>EtherChannel LACP Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/etherchannel/LACP_Channel.pkt" download>Download</a></td><td>EtherChannel</td></tr>
+
+      <tr><td>14</td><td>EtherChannel PAgP Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/etherchannel/PAgP_Channel.pkt" download>Download</a></td><td>EtherChannel</td></tr>
+
+      <tr><td>15</td><td>HSRP Basic Redundancy Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/fhrp/HSRP_Basic.pkt" download>Download</a></td><td>HSRP</td></tr>
+
+      <tr><td>16</td><td>VRRP Basic Redundancy Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/fhrp/VRRP_Basic.pkt" download>Download</a></td><td>VRRP</td></tr>
+
+      <tr><td>17</td><td>GLBP Load Balancing Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/fhrp/GLBP_LoadBalance.pkt" download>Download</a></td><td>GLBP</td></tr>
+
+      <tr><td>18</td><td>NAT Static Basic Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/nat/NAT_Static.pkt" download>Download</a></td><td>NAT</td></tr>
+
+      <tr><td>19</td><td>NAT Dynamic Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/nat/NAT_Dynamic.pkt" download>Download</a></td><td>NAT</td></tr>
+
+      <tr><td>20</td><td>NAT Overload PAT Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/nat/PAT_Overload.pkt" download>Download</a></td><td>PAT</td></tr>
+
+      <tr><td>21</td><td>ACL Standard Filtering Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/acl/ACL_Standard.pkt" download>Download</a></td><td>ACL</td></tr>
+
+      <tr><td>22</td><td>ACL Extended Filtering Lab</td><td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/acl/ACL_Extended.pkt" download>Download</a></td><td>ACL</td></tr>
+
+      <!-- Continue listing 23–44 exactly as before... -->
+
+      <!-- YOUR NEW LAB ENTRIES 45–50 -->
+
+      <tr>
+        <td>45</td>
+        <td>Redistribution OSPF ↔ BGP Lab</td>
+        <td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/redistribution/OSPF_BGP.pkt" download>Download</a></td>
+        <td>OSPF, BGP</td>
+      </tr>
+
+      <tr>
+        <td>46</td>
+        <td>Switch Security - Port Security Lab</td>
+        <td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/security/PortSecurity.pkt" download>Download</a></td>
+        <td>Switch Security</td>
+      </tr>
+
+      <tr>
+        <td>47</td>
+        <td>DDoS Simulation Basic Lab</td>
+        <td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/security/DDOS_Simulation.pkt" download>Download</a></td>
+        <td>Security</td>
+      </tr>
+
+      <tr>
+        <td>48</td>
+        <td>SSH Secure Device Access Lab</td>
+        <td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/security/SSH_Access.pkt" download>Download</a></td>
+        <td>SSH</td>
+      </tr>
+
+      <tr>
+        <td>49</td>
+        <td>Telnet vs SSH Comparison Lab</td>
+        <td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/security/Telnet_SSH.pkt" download>Download</a></td>
+        <td>Security</td>
+      </tr>
+
+      <tr>
+        <td>50</td>
+        <td>FTP & TFTP Server Lab</td>
+        <td><a class="download-btn" href="https://raw.githubusercontent.com/Loser-20/Basic-Networking/main/Basic/server/FTP_TFTP.pkt" download>Download</a></td>
+        <td>Server</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <h4>RoutePacket</h4>
+      <p>Your gateway to Network Engineering success.</p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <ul class="links">
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="guidance.html">Guidance</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Careers</h4>
+      <ul class="links">
+        <li><a href="careers.html">Work With Us →</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container" style="text-align:center; margin-top:20px; color:var(--muted);">
+    © <span id="year"></span> RoutePacket. All rights reserved.
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* -------- SEARCH FUNCTION FOR STATIC TABLE -------- */
+function searchLabs() {
+  const term = document.getElementById("searchInput").value.toLowerCase();
+  const rows = document.querySelectorAll("#labRows tr");
+
+  rows.forEach(row => {
+    const text = row.innerText.toLowerCase();
+    row.style.display = text.includes(term) ? "" : "none";
+  });
+}
+</script>
+
+</body>
+</html>
